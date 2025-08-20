@@ -8,7 +8,7 @@ function ProductList({ products, onEdit, onDelete }) {
           <p className="price">₹{product.price}</p>
           <p>{product.category}</p>
           <div className="btn-group">
-      <button className="amazon-btn" onClick={() => onEdit(product)}>Edit</button>
+      <button className="amazon-btn" onClick={() => onEdit(product)}>Update</button>
 <button className="amazon-btn" onClick={() => onDelete(product.id)}>Delete</button>
 
           </div>
