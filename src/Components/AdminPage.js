@@ -9,6 +9,8 @@ import {
 import ProductForm from "./ProductForm";
 import ProductList from "./ProductList";
 import "../App.css";
+import { toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminPage() {
   const [products, setProducts] = useState([]);
@@ -37,8 +39,10 @@ function AdminPage() {
     try {
       const newProduct = await addProduct(product);
       setProducts((prev) => [newProduct, ...prev]);
+      
     } catch {
       setError("Failed to add product");
+      
     }
   };
 
@@ -50,8 +54,10 @@ function AdminPage() {
         prev.map((p) => (p.id === updated.id ? updated : p))
       );
       setEditProduct(null);
+      
     } catch {
       setError("Failed to update product");
+ 
     }
   };
 
@@ -60,8 +66,10 @@ function AdminPage() {
     try {
       await deleteProduct(id);
       setProducts((prev) => prev.filter((p) => p.id !== id));
+      toast.success(" Product deleted successfully!");
     } catch {
       setError("Failed to delete product");
+    
     }
   };
 

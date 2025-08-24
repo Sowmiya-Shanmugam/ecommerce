@@ -3,7 +3,8 @@ import AdminPage from "./Components/AdminPage";
 import "./App.css";
 import { Toaster, toast } from "react-hot-toast";
 import bgImg from "../src/Assets/premium_photo-1684785618727-378a3a5e91c5.avif";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -22,7 +23,9 @@ function App() {
     <div>
       <Toaster position="top-center" reverseOrder={false} />
       {!isLoggedIn ? <Login onLogin={handleLogin} /> : <AdminPage />}
+       <ToastContainer position="top-center" autoClose={2000} />
     </div>
+    
   );
 }
 

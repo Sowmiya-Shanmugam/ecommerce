@@ -24,7 +24,8 @@ export const addProduct = async (product) => {
 
 export const updateProduct = async (id, product) => {
   try {
-    const res = await axios.put(`${BASE_URL}/${id}, product`);
+    // send product in request body, not URL
+    const res = await axios.put(`${BASE_URL}/${id}`, product);
     return res.data;
   } catch (error) {
     console.error("Update product failed:", error);
